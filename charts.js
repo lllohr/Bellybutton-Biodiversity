@@ -83,14 +83,15 @@ function buildCharts(sample) {
       x: sample_values_slice,
       y: yticks,
       type: "bar",
-      orientation: 'h'
+      orientation: 'h',
+      opacity: 0.5,
     };
 
     // // 9. Create the layout for the bar chart. 
     var layout = {
-      title: "Top Ten Bacteria Cultures Found"
-      // xaxis: {title: "Sample Values" },
-      // yaxis: {title: "otu_labels"}
+      title: "<b>Top Ten Bacteria Cultures Found</b>",
+      font: { color: "darkblue", weight: "bold", family: "Arial" }
+
     };
     
     // // 10. Use Plotly to plot the data with the layout. 
@@ -113,10 +114,11 @@ function buildCharts(sample) {
 
     // 2. Create the layout for the bubble chart.
     var bubbleLayout = {
-      title: 'Bacteria Cultures Per Sample',
+      title: "<b>Bacteria Cultures Per Sample</b>",
       showlegend: false,
       xaxis: {title: "OTU ID" },
       hovermode:'closest',
+      font: { color: "darkblue", weight: "bold", family: "Arial" }
     };
 
     // 3. Use Plotly to plot the data with the layout.
@@ -132,21 +134,31 @@ function buildGauge(data){
     value: frequency,
     type: "indicator",
     mode: "gauge+number",
-    title: { text: "Belly Button Washing Frequency" }
-    // gauge: {
-      // axis: { range: [null, 10] },
+    title: {text: "<b>Belly Button Washing Frequency</b><br> Washes per Week"
+    },
+    
+    gauge: {
+      axis: { range: [null, 10]},
+      bar: { color: "black"},
+    
+      steps: [
+        { range: [0, 2], color: "red" },
+        { range: [2, 4], color: "orange"},
+        { range: [4, 6], color: "yellow"},
+        { range: [6, 8], color: "limegreen"},
+        { range: [8, 10], color: "green"},
+      ],
+    },
   }];
     
     // 5. Create the layout for the gauge chart.
     var gaugeLayout = { 
-      width: 600, height: 500, 
-      margin: { t: 0, b: 0 }
-    
+      margin: { t: 0, b: 0 },
+      font: { color: "darkblue", family: "Arial" }
     };
 
     // 6. Use Plotly to plot the gauge data and layout.
     Plotly.newPlot("gauge", gaugeData, gaugeLayout);
-
 }
 
 
