@@ -159,7 +159,12 @@ function buildGauge(data){
     // 5. Create the layout for the gauge chart.
     var gaugeLayout = { 
       font: { color: "darkblue", family: "Arial" },
-      margin: { t: 25, r: 25, l: 25, b: 25 },
+      margin: { t: 100, r: 100, l: 100, b: 100 },
+      line: {
+      color: '600000'
+      },
+      width: 480,
+      height: 450,
       paper_bgcolor: "lightyellow",
     };
 
