@@ -119,6 +119,8 @@ function buildCharts(sample) {
       title: "<b>Bacteria Cultures Per Sample</b>",
       showlegend: false,
       xaxis: {title: "OTU ID" },
+      height: 480,
+      width: 1100,
       hovermode:'closest',
       font: { color: "darkblue", weight: "bold", family: "Arial" }
     };
